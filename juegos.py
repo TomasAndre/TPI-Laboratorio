@@ -68,15 +68,15 @@ def juego2():
     #ADIVINA EL NUMERO
     import random
     numero=random.randint(1,9)  # ELIJE UN NUMERO AL AZAR: 1,2,3,4,5,6,7,8,9
-    i=5
+    i=5 
     print("ESCRIBE EL NUMERO A ADIVINAR, OJO TENES 5 VIDAS")
     print("PISTA: EL NUMERO ESTA ENTRE 1 Y 9") 
     numero_adivinar=45
-    while i>0 and numero!=numero_adivinar: # SE INICIA EL CONTADOR I EN 0, Y SI LLEGA A 5 Y EL NUMERO QUE INGRESA NO ES IGUAL AL 
-        i=i-1                              	 # NUMERO RANDOM VUELVE AL MENU
+    while i>0 and numero!=numero_adivinar: 
+        i=i-1                              	 
         print("")
         numero_adivinar = int(input("Numero: "))
-        if i==0:                                            #SI EL CONTADOR ES IGUAL A 5 IMPRIME QUE SE TERMINARON LAS VIDAS
+        if i==0:                                      #SI EL CONTADOR ES IGUAL A 5 IMPRIME QUE SE TERMINARON LAS VIDAS
             print("*SE TERMINARON LAS VIDAS*")
         else:
             if numero==numero_adivinar:
@@ -89,13 +89,47 @@ def juego2():
                 print("TE QUEDAN ",i,(" VIDAS!"))
                 
 
+def juego3():
+    import random
+    numero= random.randint(10,22)
+    intentosrealizados= 3
+    print("**************************************")
+    print("Bienvenido a adivina la edad que tengo")
+    print("**************************************")
+    print("")
+    print("***************************************************************")
+    print("Te doy una pista, mi edad esta entre 10 y 22. Tenes 3 intentos!")
+    print("***************************************************************")
 
+    while intentosrealizados != 0:
+        respuesta=int(input("Intenta adivinar,¿Cuantos años tengo?: "))
+        intentosrealizados= intentosrealizados-1
+        if respuesta==numero: 
+            print("||||||||||||||||||||||||||||||||||||||||||")
+            print("|Felicidades tu respuesta es la correcta!|")
+            print("||||||||||||||||||||||||||||||||||||||||||")
+            break
+
+        if intentosrealizados==0:
+            print("|||||||||||||||||||||||||||||||||||||")
+            print("|Perdiste, mi edad era de ",numero," años!|")
+            print("|||||||||||||||||||||||||||||||||||||") 
+            break
+        if respuesta<numero:
+            print("Tu repuesta es muy baja")
+            print("Intentos: ",intentosrealizados)
+        else:
+            print("Tu respuesta es muy alta")
+            print("Intentos:",intentosrealizados)
+    
+
+ 
 def juego4():
     #MULTIPLICAR
     import random
 
-    num1 = random.randint(1,9) #NUMERO AL AZAR ENTRE 0 Y 100
-    num2 = random.randint(1,9) #NUMERO AL AZAR ENTRE 0 Y 100
+    num1 = random.randint(1,9) #NUMERO AL AZAR ENTRE 1 Y 9
+    num2 = random.randint(1,9) #NUMERO AL AZAR ENTRE 1 Y 9
 
     resultado = num1*num2       #MULTIPLICACION LOS DOS NUMEROS ALEATORIOS
     vida = 3 
@@ -108,20 +142,20 @@ def juego4():
             print("El numero es incorrecto, te quedan ",vida-1," intentos")
             vida=vida-1
         else:
-            print("****************") 
-            print("    CORRECTO!!  ")
-            print("****************") 
+            print("|||||||||||||||||") 
+            print("||||CORRECTO!!|||")
+            print("|||||||||||||||||") 
             print("El resultado de ",num1, "x",num2, "es:",resultado)
             break
 
 
-lista_juegos=["PIEDRA PAPEL O TIJERA","ADIVINA EL NUMERO","juego pablo","MULTIPLICAR","GRACIAS POR JUGAR!"]
+lista_juegos=["PIEDRA PAPEL O TIJERA","ADIVINA EL NUMERO","ADIVINA LA EDAD","MULTIPLICAR","GRACIAS POR JUGAR!"]
 menu=0
 while menu!=5:
     print("***MENU DE JUEGOS***")
     print("1- PIEDRA PAPEL O TIJERA")
     print("2- ADIVINA EL NUMERO")
-    print("3-")
+    print("3- ADIVINA LA EDAD")
     print("4- MULTIPLICAR")
     print("5- SALIR")
     menu = int(input("Escribe que juego quiere jugar: "))
@@ -136,9 +170,11 @@ while menu!=5:
     if menu == 3:
         print("")
         print("BIENVENIDO A ",lista_juegos[2])
+        print(juego3())
     if menu == 4:
         print("")
         print("BIENVENIDO A ",lista_juegos[3])
         print(juego4())
-        
+print("||||||||||||||||||")        
 print(lista_juegos[4]) 
+print("||||||||||||||||||")    

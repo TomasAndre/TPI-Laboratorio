@@ -13,8 +13,8 @@ while vida != 0:
     print("El numero es incorrecto, te quedan ",vida-1," intentos")
     vida=vida-1
   else:
-    print("****************") 
-    print("    CORRECTO!!  ")
-    print("****************") 
+    print("|||||||||||||||||") 
+    print("||||CORRECTO!!|||")
+    print("|||||||||||||||||") 
     print("El resultado de ",num1, "x",num2, "es:",resultado)
     break
